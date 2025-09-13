@@ -1,0 +1,88 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
+	},
+
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": [
+			"apps/admin/src/routeTree.gen.ts",
+			"**/node_modules/**",
+			"**/dist/**",
+			"**/build/**",
+			"packages/design-system/src/**",
+			"packages/ui/src/components/Icons/assets/**",
+			"packages/ui/src/components/Icons/**.tsx"
+		],
+		"include": ["src/**", ".vscode/**", "index.html", "vite.config.*"]
+	},
+
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+
+	"organizeImports": {
+		"enabled": true
+	},
+
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+
+			"security": {
+				"recommended": true,
+				"noDangerouslySetInnerHtml": "error",
+				"noDangerouslySetInnerHtmlWithChildren": "error",
+				"noGlobalEval": "error"
+			},
+
+			"correctness": {
+				"recommended": true,
+				"noUnusedImports": "error",
+				"noConstAssign": "error"
+			},
+
+			"suspicious": {
+				"recommended": true,
+				"noDebugger": "error",
+				"noConsole": "warn",
+				"useIsArray": "error",
+				"noExplicitAny": "warn",
+				"noImplicitAnyLet": "error",
+				"noExtraNonNullAssertion": "error"
+			},
+
+			"performance": {
+				"recommended": true,
+				"noAccumulatingSpread": "warn",
+				"noReExportAll": "warn",
+				"noDelete": "warn"
+			},
+
+			"style": {
+				"recommended": true,
+				"useImportType": "error",
+				"useExportType": "error",
+				"useFragmentSyntax": "error",
+				"useSelfClosingElements": "error",
+				"useForOf": "error",
+				"noDefaultExport": "warn",
+				"useFilenamingConvention": "error",
+				"useNamingConvention": "error"
+			}
+		}
+	},
+
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"jsxQuoteStyle": "double"
+		}
+	}
+}

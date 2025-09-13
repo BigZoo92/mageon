@@ -1,0 +1,73 @@
+id: admin
+type: application
+language: typescript
+stack: frontend
+
+dependsOn:
+  - api
+  - ui
+
+project:
+  name: admin
+  description: Tansatck admin
+  owner: bigzoo
+  maintainers: [enzo.givernaud]
+
+tasks:
+  cssgen-watch:
+    command: 'bun run cssgen --outfile src/styles.css'
+    local: true
+    options:
+      runInCI: false
+    inputs:
+      - 'src/**/*'
+    outputs:
+      - 'src/styles.css'
+    deps:
+      - 'theme:dev'
+      - 'design-system:dev'
+
+  vitedev:
+    command: 'bun run dev'
+    local: true
+    options:
+      runInCI: false
+
+  dev:
+    command: "noop"
+    local: true
+    deps:
+      - 'theme:dev'
+      - 'design-system:dev'
+      - 'admin:cssgen-watch'
+      - 'admin:vitedev'
+      - 'ui:dev'
+      - 'api:dev'
+
+  cssgen:
+    command: 'bun panda cssgen --outfile src/styles.css'
+    inputs:
+      - 'src/**/*'
+    outputs:
+      - 'src/styles.css'
+    deps:
+      - 'theme:build'
+      - 'design-system:build'
+
+  build:
+    command: "bun run build"
+    outputs:
+      - "dist/**"
+    deps:
+      - 'api:build'
+      - 'theme:build'
+      - 'design-system:build'
+      - 'admin:cssgen'
+      - 'ui:build'
+
+  lint:
+    command: "bun run lint"
+  typecheck:
+    command: "bun run typecheck"
+  test:
+    command: "bun run test"

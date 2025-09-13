@@ -1,0 +1,22 @@
+id: theme
+type: library
+language: node
+stack: frontend
+
+project:
+  name: theme
+  description: Design System Theme
+  owner: bigzoo
+  maintainers: [enzo.givernaud]
+
+tasks:
+  dev:
+    command: 'pnpm run watch'
+    local: true
+    options:
+      runInCI: false
+    inputs:
+      - 'src/**/*'
+
+  build:
+    command: "pnpm run build"

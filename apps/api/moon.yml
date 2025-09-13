@@ -1,0 +1,21 @@
+id: "api"
+type: application
+language: go
+stack: 'backend'
+
+project:
+  name: 'api'
+  description: 'Go api'
+  owner: 'bigzoo'
+  maintainers: ['enzo.givernaud']
+
+tasks:
+  dev:
+    command: "go run ."
+    local: true
+  build:
+    command: "go build -o dist/api ./cmd/api"
+    outputs:
+      - "dist/**"
+  test:
+    command: "go test ./..."

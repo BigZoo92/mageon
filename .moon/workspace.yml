@@ -1,0 +1,41 @@
+# https://moonrepo.dev/docs/config/workspace
+$schema: 'https://moonrepo.dev/schemas/workspace.json'
+
+projects:
+  globs:
+    - 'apps/*'
+    - 'packages/*'
+  sources:
+    admin: 'apps/admin'
+    api: 'apps/api'
+    ui: 'packages/ui'
+    theme: 'packages/theme'
+    design-system: 'packages/design-system'
+
+vcs:
+  manager: 'git'
+  defaultBranch: 'main'
+  provider: 'gitlab'
+
+hasher:
+  optimization: 'performance'
+  ignorePatterns:
+    - '**/*.png'
+    - '**/*.jpg'
+    - '**/*.jpeg'
+    - '**/*.svg'
+    - '**/*.mp4'
+    - '**/*.webm'
+  ignoreMissingPatterns:
+    - '**/.eslintrc.*'
+    - '**/*.config.*'
+
+experiments:
+  actionPipelineV2: true
+  gitV2: true
+
+# --- peut mettre false si besoin de + de confidentialité
+telemetry: true
+codeowners:
+  syncOnRun: true
+  orderBy: 'project-name'

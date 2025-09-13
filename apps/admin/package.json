@@ -1,0 +1,21 @@
+{
+	"name": "admin",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "bun vitest run",
+		"format": "bun biome format",
+		"lint": "bun biome lint && oxlint .",
+		"typecheck": "bun tsc -b --noEmit",
+		"check": "bun run lint && bun run typecheck && bun run test",
+		"cssgen": "bun panda cssgen --outfile src/styles.css --watch",
+		"dev": "bunx --bun  vite dev --port 3000",
+		"build": "vite build",
+		"serve": "bunx --bun vite preview"
+	},
+	"dependencies": {
+		"@bigzoo/design-system": "workspace:*",
+		"@bigzoo/theme": "workspace:*",
+		"@bigzoo/ui": "workspace:*"
+	}
+}

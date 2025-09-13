@@ -1,0 +1,22 @@
+{
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@/assets/*": [
+        "./src/assets/*"
+      ],
+      "@/libs/auth": [
+        "./src/libs/auth"
+      ]
+    },
+    "outDir": "../../.moon/cache/types/apps/admin"
+  }
+}
