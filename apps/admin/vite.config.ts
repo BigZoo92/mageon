@@ -33,7 +33,7 @@ export default defineConfig({
 		dedupe: ["react", "react-dom"],
 	},
 	optimizeDeps: {
-		exclude: ["@bigzoo/ui", "@bigzoo/design-system", "@bigzoo/theme"],
+		exclude: ["@bigzoo/ui", "@bigzoo/theme"],
 		include: ["react", "react-dom"],
 	},
 	server: { port: 3000, fs: { strict: false } },

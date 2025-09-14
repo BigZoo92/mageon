@@ -14,7 +14,6 @@
 		"serve": "bunx --bun vite preview"
 	},
 	"dependencies": {
-		"@bigzoo/design-system": "workspace:*",
 		"@bigzoo/theme": "workspace:*",
 		"@bigzoo/ui": "workspace:*"
 	}

@@ -1,4 +1,4 @@
-import { styled } from '@bigzoo/design-system/jsx';
+import { styled } from '@bigzoo/theme/jsx';
 
 const StyledTitle = styled('p', {
 	base: {

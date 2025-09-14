@@ -1,7 +1,7 @@
-import { token } from "@bigzoo/design-system/tokens";
-import type { JSX } from "react";
-import type { Size } from "../types";
-import { type IconName, IconsRegistry } from "./IconsRegistry";
+import { token } from '@bigzoo/theme/tokens';
+import type { JSX } from 'react';
+import type { Size } from '../types';
+import { type IconName, IconsRegistry } from './IconsRegistry';
 
 const iconSize: Record<Size, number> = {
 	small: 10,
@@ -13,10 +13,10 @@ const iconSize: Record<Size, number> = {
 export const Icon = ({
 	icon,
 	color,
-	size = "default",
+	size = 'default',
 }: { icon: IconName; color?: string; size?: Size }): JSX.Element => {
 	const IconComponent = IconsRegistry[icon];
-	const iconColor = color ?? token("colors.surface.stroke.600");
+	const iconColor = color ?? token('colors.surface.stroke.600');
 	return (
 		<IconComponent
 			width={`${iconSize[size]}px`}

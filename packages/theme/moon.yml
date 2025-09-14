@@ -5,7 +5,7 @@ stack: frontend
 
 project:
   name: theme
-  description: Design System Theme
+  description: Design System
   owner: bigzoo
   maintainers: [enzo.givernaud]
 
@@ -17,6 +17,10 @@ tasks:
       runInCI: false
     inputs:
       - 'src/**/*'
+    deps:
+      - 'theme:dev'
 
   build:
     command: "pnpm run build"
+    deps:
+      - 'theme:build'

@@ -1,103 +1,103 @@
-import { cva } from "@bigzoo/design-system/css";
-import { Flex, styled } from "@bigzoo/design-system/jsx";
-import { token } from "@bigzoo/design-system/tokens";
-import { type CSSProperties, useState } from "react";
-import { Label } from "../Fonts/Label";
-import { Text } from "../Fonts/Text";
-import { Icon } from "../Icons/Icon";
-import type { IconName } from "../Icons/IconsRegistry";
+import { cva } from '@bigzoo/theme/css';
+import { Flex, styled } from '@bigzoo/theme/jsx';
+import { token } from '@bigzoo/theme/tokens';
+import { type CSSProperties, useState } from 'react';
+import { Label } from '../Fonts/Label';
+import { Text } from '../Fonts/Text';
+import { Icon } from '../Icons/Icon';
+import type { IconName } from '../Icons/IconsRegistry';
 
 const AUTOFILL =
-	"&:autofill, &:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-moz-autofill";
+	'&:autofill, &:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-moz-autofill';
 
 const inputRecipe = cva({
 	base: {
-		backgroundColor: "bg",
-		border: "1px solid",
-		padding: "input",
-		borderColor: "surface.stroke.200",
-		borderRadius: "default",
-		caretColor: "surface.stroke.600",
-		transition: "all 0.15s ease-in-out",
+		backgroundColor: 'bg',
+		border: '1px solid',
+		padding: 'input',
+		borderColor: 'surface.stroke.200',
+		borderRadius: 'default',
+		caretColor: 'surface.stroke.600',
+		transition: 'all 0.15s ease-in-out',
 
 		_focus: {
-			border: "1px solid",
-			outline: "0px solid",
-			borderColor: "surface.stroke.400",
-			boxShadow: "input.default",
+			border: '1px solid',
+			outline: '0px solid',
+			borderColor: 'surface.stroke.400',
+			boxShadow: 'input.default',
 		},
 		_focusVisible: {
-			border: "1px solid",
-			outline: "0px solid",
-			borderColor: "surface.stroke.400",
-			boxShadow: "input.default",
+			border: '1px solid',
+			outline: '0px solid',
+			borderColor: 'surface.stroke.400',
+			boxShadow: 'input.default',
 		},
 
 		[AUTOFILL]: {
-			boxShadow: "autofill",
-			caretColor: "surface.stroke.600",
-			fontFamily: "body !important",
-			transition: "background-color 9999s ease-out",
-			backgroundClip: "padding-box",
-			fontSize: "default !important",
+			boxShadow: 'autofill',
+			caretColor: 'surface.stroke.600',
+			fontFamily: 'body !important',
+			transition: 'background-color 9999s ease-out',
+			backgroundClip: 'padding-box',
+			fontSize: 'default !important',
 		},
 	},
 	variants: {
 		withIcon: {
 			true: {
 				paddingInlineStart:
-					"calc(var(--icon-inset) + var(--icon-size) + var(--icon-gap))",
+					'calc(var(--icon-inset) + var(--icon-size) + var(--icon-gap))',
 			},
 		},
 		withTwoIcons: {
 			true: {
 				paddingInline:
-					"calc(var(--icon-inset) + var(--icon-size) + var(--icon-gap))",
+					'calc(var(--icon-inset) + var(--icon-size) + var(--icon-gap))',
 			},
 		},
 		error: {
 			true: {
-				borderColor: "utility.danger",
-				caretColor: "utility.danger",
-				color: "utility.danger",
+				borderColor: 'utility.danger',
+				caretColor: 'utility.danger',
+				color: 'utility.danger',
 				_focus: {
-					border: "1.5px solid",
-					borderColor: "utility.danger",
-					boxShadow: "input.danger",
-					color: "utility.danger",
+					border: '1.5px solid',
+					borderColor: 'utility.danger',
+					boxShadow: 'input.danger',
+					color: 'utility.danger',
 				},
 				_focusVisible: {
-					border: "1.5px solid",
-					borderColor: "utility.danger",
-					boxShadow: "input.danger",
-					color: "utility.danger",
+					border: '1.5px solid',
+					borderColor: 'utility.danger',
+					boxShadow: 'input.danger',
+					color: 'utility.danger',
 				},
 			},
 		},
 	},
 });
 
-const StyledInput = styled("input", inputRecipe);
+const StyledInput = styled('input', inputRecipe);
 const InputContainer = styled(Flex, {
 	base: {
-		position: "relative",
-		alignItems: "center",
-		"--icon-inset": "{spacing.xs}",
-		"--icon-gap": "{spacing.xs}",
-		"--icon-size": "20px",
+		position: 'relative',
+		alignItems: 'center',
+		'--icon-inset': '{spacing.xs}',
+		'--icon-gap': '{spacing.xs}',
+		'--icon-size': '20px',
 	},
 });
-const IconContainer = styled("div", {
-	base: { position: "absolute" },
+const IconContainer = styled('div', {
+	base: { position: 'absolute' },
 	variants: {
 		firstIcon: {
 			true: {
-				left: "{spacing.xs}",
+				left: '{spacing.xs}',
 			},
 		},
 		secondIcon: {
 			true: {
-				right: "{spacing.xs}",
+				right: '{spacing.xs}',
 			},
 		},
 	},
@@ -105,10 +105,10 @@ const IconContainer = styled("div", {
 
 const InputWithLabelContainer = styled(Flex, {
 	base: {
-		position: "relative",
-		flexDirection: "column",
-		gap: "{spacing.xxs}",
-		width: "fit-content",
+		position: 'relative',
+		flexDirection: 'column',
+		gap: '{spacing.xxs}',
+		width: 'fit-content',
 	},
 });
 
@@ -119,7 +119,7 @@ export const Input = ({
 	description,
 	error,
 	type,
-	width = "250px",
+	width = '250px',
 	placeholder,
 }: {
 	id: string;
@@ -128,22 +128,22 @@ export const Input = ({
 	description?: string;
 	error?: string;
 	type?: React.HTMLInputTypeAttribute;
-	width?: CSSProperties["width"];
+	width?: CSSProperties['width'];
 	placeholder?: string;
 }) => {
-	const fgVar = token.var("colors.text.800");
+	const fgVar = token.var('colors.text.800');
 	const style = {
 		// biome-ignore lint/style/useNamingConvention: <explanation>
 		WebkitTextFillColor: fgVar,
-		"--autofill-fg": fgVar,
+		'--autofill-fg': fgVar,
 	};
 	const isError = !!error;
-	const isPassword = type === "password";
+	const isPassword = type === 'password';
 	const [displayPassword, setDisplayPassword] = useState<boolean>(false);
 	return (
 		<InputWithLabelContainer>
 			{label && (
-				<Label htmlFor={id} fontSize={"small"} marginLeft={"calc(xxs / 2)"}>
+				<Label htmlFor={id} fontSize={'small'} marginLeft={'calc(xxs / 2)'}>
 					{label}
 				</Label>
 			)}
@@ -154,15 +154,15 @@ export const Input = ({
 							icon={icon}
 							color={
 								isError
-									? token.var("colors.utility.danger")
-									: token.var("colors.text.800")
+									? token.var('colors.utility.danger')
+									: token.var('colors.text.800')
 							}
 						/>
 					</IconContainer>
 				)}
 				<StyledInput
 					type={
-						isPassword && !displayPassword ? type : isPassword ? "text" : type
+						isPassword && !displayPassword ? type : isPassword ? 'text' : type
 					}
 					id={id}
 					name={id}
@@ -181,11 +181,11 @@ export const Input = ({
 						secondIcon
 					>
 						<Icon
-							icon={displayPassword ? "eye" : "eye-slashed"}
+							icon={displayPassword ? 'eye' : 'eye-slashed'}
 							color={
 								isError
-									? token.var("colors.utility.danger")
-									: token.var("colors.text.800")
+									? token.var('colors.utility.danger')
+									: token.var('colors.text.800')
 							}
 						/>
 					</IconContainer>
@@ -193,15 +193,15 @@ export const Input = ({
 			</InputContainer>
 			{description && (
 				<Text
-					marginLeft={"calc(xxs / 2)"}
-					fontSize={"small"}
-					color={"text.400"}
+					marginLeft={'calc(xxs / 2)'}
+					fontSize={'small'}
+					color={'text.400'}
 				>
 					{description}
 				</Text>
 			)}
 			{isError && (
-				<Text marginLeft={"calc(xxs / 2)"} fontSize={"small"} danger>
+				<Text marginLeft={'calc(xxs / 2)'} fontSize={'small'} danger>
 					{error}
 				</Text>
 			)}

@@ -1,36 +1,36 @@
-import { Flex, styled } from "@bigzoo/design-system/jsx";
-import { Button, Icon, Input, Text, Title } from "@bigzoo/ui";
+import { Flex, styled } from '@bigzoo/theme/jsx';
+import { Button, Icon, Input, Text, Title } from '@bigzoo/ui';
 
-const StyledForm = styled("form", {
+const StyledForm = styled('form', {
 	base: {
-		gap: "xs",
-		display: "flex",
-		flexDirection: "column",
+		gap: 'xs',
+		display: 'flex',
+		flexDirection: 'column',
 	},
 });
 
 const Separator = styled(Flex, {
 	base: {
-		fontSize: "small",
-		color: "text.200",
-		textAlign: "center",
-		position: "relative",
-		alignItems: "center",
-		justifyContent: "center",
+		fontSize: 'small',
+		color: 'text.200',
+		textAlign: 'center',
+		position: 'relative',
+		alignItems: 'center',
+		justifyContent: 'center',
 		_before: {
 			content: '""',
-			position: "absolute",
-			width: "100%",
-			height: "1px",
-			bg: "text.200",
+			position: 'absolute',
+			width: '100%',
+			height: '1px',
+			bg: 'text.200',
 			zIndex: -2,
 		},
 		_after: {
 			content: '""',
-			position: "absolute",
-			width: "30px",
-			height: "40px",
-			bg: "bg",
+			position: 'absolute',
+			width: '30px',
+			height: '40px',
+			bg: 'bg',
 			zIndex: -1,
 		},
 	},
@@ -39,9 +39,9 @@ const Separator = styled(Flex, {
 export const LoginForm = () => {
 	return (
 		<StyledForm action="">
-			<Title fontSize={"h1"}>Welcom Back</Title>
-			<Flex direction={"column"} width={"fit-content"} gap={"sm"}>
-				<Text fontSize={"small"} color={"text.200"}>
+			<Title fontSize={'h1'}>Welcom Back</Title>
+			<Flex direction={'column'} width={'fit-content'} gap={'sm'}>
+				<Text fontSize={'small'} color={'text.200'}>
 					Please, log in with your account to continue
 				</Text>
 				<Input id="email" icon="envelope" label="Email" type="email" />
@@ -51,16 +51,16 @@ export const LoginForm = () => {
 				<Button theme="tertiary">
 					<div
 						style={{
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "center",
-							width: "100%",
-							position: "relative",
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'center',
+							width: '100%',
+							position: 'relative',
 						}}
 					>
 						<div
 							style={{
-								position: "absolute",
+								position: 'absolute',
 								left: 0,
 							}}
 						>

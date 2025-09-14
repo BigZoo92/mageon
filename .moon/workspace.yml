@@ -10,7 +10,7 @@ projects:
     api: 'apps/api'
     ui: 'packages/ui'
     theme: 'packages/theme'
-    design-system: 'packages/design-system'
+    root: '.' 
 
 vcs:
   manager: 'git'

@@ -3,25 +3,21 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
-		"@bigzoo/design-system": "workspace:*",
 		"@bigzoo/theme": "workspace:*"
 	},
 	"devDependencies": {
 		"@pandacss/dev": "^1.0.0"
 	},
 	"peerDependencies": {
-		"react": "^18.2.0 || ^19.0.0",
-		"react-dom": "^18.2.0 || ^19.0.0"
-	},
-	"scripts": {
-		"build": "bun tsup ./src/index.ts",
-		"watch": "bun tsup ./src/index.ts --watch"
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
 	},
 	"exports": {
 		".": {
-			"import": "./dist/index.mjs",
-			"types": "./dist/index.d.mts"
+			"import": "./src/index.ts",
+			"types": "./src/index.ts"
 		}
 	},
-	"sideEffects": ["*.css"]
+	"types": "./src/index.ts",
+	"sideEffects": false
 }

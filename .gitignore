@@ -26,10 +26,10 @@ build
 .env.*
 
 styled-system/
-packages/design-system/src/css/
-packages/design-system/src/jsx/
-packages/design-system/src/tokens/
-packages/design-system/src/types/
-packages/design-system/src/patterns/
-packages/design-system/src/helpers.mjs
+packages/theme/src/css/
+packages/theme/src/jsx/
+packages/theme/src/tokens/
+packages/theme/src/types/
+packages/theme/src/patterns/
+packages/theme/src/helpers.mjs
 apps/admin/src/styles.css

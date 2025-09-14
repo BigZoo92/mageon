@@ -13,16 +13,5 @@
       "react-dom"
     ],
     "outDir": "../../.moon/cache/types/packages/theme"
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/index.ts",
-    "src/panda.config.layerStyles.ts",
-    "src/panda.config.textStyles.ts"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules"
-  ]
+  }
 }

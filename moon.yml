@@ -1,0 +1,69 @@
+tasks:
+
+  db/up:
+    command: 'docker compose up -d postgres pgbouncer pgweb'
+    description: "Start DB stack (postgres + pgbouncer + pgweb)"
+
+  db/up-pg-only:
+    command: 'docker compose up -d postgres'
+    description: "Start only Postgres"
+
+  db/stop:
+    command: 'docker compose stop'
+    description: "Stop containers"
+
+  db/down:
+    command: 'docker compose down'
+    description: "Down (remove containers)"
+
+  db/logs:
+    command: 'docker compose logs -f postgres'
+    description: "Tail Postgres logs"
+
+  db/init-devdb:
+    command: >
+      docker exec -i pg psql -U app -d postgres
+      -c "SELECT 'CREATE DATABASE atlas_dev'
+          WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname='atlas_dev')\gexec"
+    description: "Ensure atlas_dev exists (dev DB for Atlas)"
+
+  db/plan-diff:
+    command: 'docker compose run --rm atlas migrate apply --env dev --dry-run'
+    description: "Preview migration plan (dry-run apply)"
+    deps: ["db/up", "db/init-devdb"]
+
+  db/diff:
+    command: 'docker compose run --rm atlas migrate diff --env dev'
+    description: "Generate versioned migrations from schema.sql"
+    deps: ["db/up", "db/init-devdb"]
+
+  db/apply:
+    command: 'docker compose run --rm atlas migrate apply --env dev'
+    description: "Apply migrations to appdb"
+    deps: ["db/up", "db/init-devdb", "db/diff"]
+
+  db/inspect:
+    command: 'docker compose run --rm atlas schema inspect --env dev'
+    description: "Inspect current DB schema"
+    deps: ["db/up"]
+
+  db/psql:
+    command: 'docker exec -it pg psql -U app -d appdb'
+    description: "Open psql on appdb"
+
+  db/psql-devdb:
+    command: 'docker exec -it pg psql -U app -d atlas_dev'
+    description: "Open psql on atlas_dev"
+
+  db/tables:
+    command: 'docker exec -it pg psql -U app -d appdb -c "\dt"'
+    description: "List tables in appdb"
+
+  db/reset:
+    command: >
+      bash -lc "
+        docker exec -i pg psql -U app -d postgres -c 'DROP DATABASE IF EXISTS appdb; CREATE DATABASE appdb;'
+        && docker compose run --rm atlas migrate apply --env dev
+      "
+    description: "Drop & recreate appdb, then re-apply migrations (LOCAL ONLY)"
+    deps: ["db/up", "db/init-devdb"]

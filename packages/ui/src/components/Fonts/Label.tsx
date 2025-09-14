@@ -1,23 +1,23 @@
-import { styled } from "@bigzoo/design-system/jsx";
+import { styled } from '@bigzoo/theme/jsx';
 
-const StyledLabel = styled("label", {
+const StyledLabel = styled('label', {
 	base: {
-		color: "Label.800",
+		color: 'Label.800',
 	},
 	variants: {
 		danger: {
 			true: {
-				color: "utility.danger",
+				color: 'utility.danger',
 			},
 		},
 		warning: {
 			true: {
-				color: "utility.warning",
+				color: 'utility.warning',
 			},
 		},
 		success: {
 			true: {
-				color: "utility.success",
+				color: 'utility.success',
 			},
 		},
 	},

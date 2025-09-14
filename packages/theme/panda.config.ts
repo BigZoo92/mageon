@@ -1,5 +1,5 @@
 import { defineConfig } from '@pandacss/dev'
-import { theme } from '@bigzoo/theme'
+import { theme } from './src/index'
 
 
 export default defineConfig({
@@ -12,6 +12,6 @@ export default defineConfig({
   minify: true,
   presets: ['@pandacss/dev/presets', theme],
   include: [],
-  importMap: '@bigzoo/design-system',
+  importMap: '@bigzoo/theme',
   outdir: './src/',
 })

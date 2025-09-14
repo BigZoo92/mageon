@@ -14,9 +14,8 @@
 			"**/node_modules/**",
 			"**/dist/**",
 			"**/build/**",
-			"packages/design-system/src/**",
-			"packages/ui/src/components/Icons/assets/**",
-			"packages/ui/src/components/Icons/**.tsx"
+			"packages/theme/src/**",
+			"packages/ui/src/components/Icons/ExternalIcons/**"
 		],
 		"include": ["src/**", ".vscode/**", "index.html", "vite.config.*"]
 	},

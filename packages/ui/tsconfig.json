@@ -1,6 +1,8 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "composite": true,
+    "noEmit": true,
     "moduleResolution": "Bundler",
     "module": "ESNext",
     "jsx": "react-jsx",
@@ -22,6 +24,11 @@
   "exclude": [
     "dist",
     "node_modules",
-    "./src/components/Icons/ExternalIcons/assets",
+    "./src/components/Icons/ExternalIcons/assets"
+  ],
+  "references": [
+    {
+      "path": "../theme"
+    }
   ]
 }

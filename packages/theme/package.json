@@ -1,17 +1,45 @@
 {
-  "name": "@bigzoo/theme",
-  "private": true,
-  "type": "module",
-  "packageManager": "pnpm@10.15.0",
-  "scripts": {
-    "build": "bun tsup ./src/index.ts",
-    "watch": "bun tsup ./src/index.ts --watch"
-  },
-  "exports": {
-     ".": { "import": "./dist/index.js", "types": "./dist/index.d.ts"}
-  },
-  "peerDependencies": {
-    "react": "^18.2.0 || ^19.0.0",
-    "react-dom": "^18.2.0 || ^19.0.0"
-  }
+	"name": "@bigzoo/theme",
+	"version": "0.1.0",
+	"private": true,
+	"devDependencies": {
+		"@pandacss/dev": "^1.0.0"
+	},
+	"scripts": {
+		"build": "bun panda codegen",
+		"watch": "bun panda codegen --watch"
+	},
+	"exports": {
+		"./css": {
+			"types": "./src/css/index.d.ts",
+			"require": "./src/css/index.mjs",
+			"import": "./src/css/index.mjs"
+		},
+		"./tokens": {
+			"types": "./src/tokens/index.d.ts",
+			"require": "./src/tokens/index.mjs",
+			"import": "./src/tokens/index.mjs"
+		},
+		"./types": {
+			"types": "./src/types/index.d.ts",
+			"require": "./src/types/index.mjs",
+			"import": "./src/types/index.mjs"
+		},
+		"./patterns": {
+			"types": "./src/patterns/index.d.ts",
+			"require": "./src/patterns/index.mjs",
+			"import": "./src/patterns/index.mjs"
+		},
+		"./jsx": {
+			"types": "./src/jsx/index.d.ts",
+			"require": "./src/jsx/index.mjs",
+			"import": "./src/jsx/index.mjs"
+		},
+		".": "./src/index.ts"
+	},
+	"peerDependencies": {
+		"react": "19.0.0",
+		"react-dom": "19.0.0"
+	},
+	"sideEffects": false
 }

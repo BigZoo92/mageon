@@ -8,21 +8,3 @@ project:
   description: Design System
   owner: bigzoo
   maintainers: [enzo.givernaud]
-
-tasks:
-  dev:
-    command: 'pnpm run watch'
-    local: true
-    options:
-      runInCI: false
-    inputs:
-      - 'src/**/*'
-    deps:
-      - 'theme:dev'
-      - 'design-system:dev'
-
-  build:
-    command: "pnpm run build"
-    deps:
-      - 'theme:build'
-      - 'design-system:build'
